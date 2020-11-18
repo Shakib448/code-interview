@@ -18,15 +18,15 @@ const ImageTask = () => {
                       className="imageTask__btn"
                       variant="success"
                       as={Button}
-                      eventKey="0"
+                      eventKey="1"
                     >
                       Task Details
                     </Accordion.Toggle>
                   </Card.Header>
-                  <Accordion.Collapse eventKey="0">
+                  <Accordion.Collapse eventKey="1">
                     <Card.Body>Hello! I'm the body</Card.Body>
                   </Accordion.Collapse>
-                  <Accordion.Collapse eventKey="0">
+                  <Accordion.Collapse eventKey="1">
                     <Card.Body className="text-center">
                       <Button className="imageTask__btn" variant="success">
                         Download
