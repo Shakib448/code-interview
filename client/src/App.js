@@ -1,18 +1,30 @@
+import { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import EditedImageList from "./Components/Dashboard/EditedImageList/EditedImageList";
 import ImageUpload from "./Components/Dashboard/ImageUpload/ImageUpload";
+import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import Home from "./Components/Home/Home/Home";
 
+export const userInformationData = createContext();
+
 function App() {
+  const [userData, setUserData] = useState({});
   return (
     <>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/edited-image-list" component={EditedImageList} />
-          <Route exact path="/image-upload" component={ImageUpload} />
-        </Switch>
-      </Router>
+      <userInformationData.Provider value={[userData, setUserData]}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/google-login" component={GoogleLogin} />
+            <Route
+              exact
+              path="/edited-image-list"
+              component={EditedImageList}
+            />
+            <Route exact path="/image-upload" component={ImageUpload} />
+          </Switch>
+        </Router>
+      </userInformationData.Provider>
     </>
   );
 }
