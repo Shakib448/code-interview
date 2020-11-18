@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap')
+$bgColor : #F1FBF9
+
+=button($bg)
+    outline: none
+    border: none
+    box-shadow: none
+    background: $bg
+
+.imageTask__card
+    border : none
+    transition : .5s
+    cursor: pointer
+    margin: 50px 0
+    font-family: 'Josefin Sans', sans-serif
+    &:hover
+        box-shadow: 10px 10px 50px lightgrey
+
+.imageTaskCollapse__card
+    border : none !important
+    font-family: 'Josefin Sans', sans-serif
+
+.text-center.card-header
+    border: none
+    background: transparent
+
+.imageTask__btn
+    padding : 2% 8%
+    background : $bgColor
+    border: none
+    color : #28A745
+    font-weight: bold
+    font-size: 20px
+
+    &:focus
+        +button(none)

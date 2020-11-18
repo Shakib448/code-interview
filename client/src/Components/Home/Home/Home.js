@@ -1,10 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
+import ImageTask from "../ImageTask/ImageTask";
 
 const Home = () => {
   return (
-    <main>
+    <main style={{ backgroundColor: "#F1FBF9" }}>
       <Banner />
+      <ImageTask />
     </main>
   );
 };
