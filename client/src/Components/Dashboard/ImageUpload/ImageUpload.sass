@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Actor&display=swap")
 
+=button($bg)
+    outline: none
+    border: none
+    box-shadow: none
+    background: $bg
+
 .imageUpload
     font-family: "Actor", sans-serif
     font-size: 20px
@@ -15,9 +21,7 @@
     font-size: 20px
 
     &:focus
-        outline: none
-        border: none
-        box-shadow: none
+        +button(none)
 
 .imageUpload__form
     height: 50px
@@ -28,10 +32,7 @@
     background: #F1FBF9
 
     &:focus
-        outline: none
-        border: none
-        box-shadow: none
-        background: #F1FBF9
+        +button(#F1FBF9)
 
 .inputFile
     width: 0.1px
