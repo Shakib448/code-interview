@@ -19,7 +19,7 @@ const Sidebar = ({ heading }) => {
                 <NavDropdown.Item as={Link} to="/image-upload">
                   <CloudUploadIcon /> Upload
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/">
+                <NavDropdown.Item as={Link} to="/edited-image-list">
                   <ListIcon /> Edited List
                 </NavDropdown.Item>
               </NavDropdown>
