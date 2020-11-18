@@ -15,6 +15,7 @@ const ImageTask = () => {
                 <Card className="imageTaskCollapse__card">
                   <Card.Header className="text-center">
                     <Accordion.Toggle
+                      className="imageTask__btn"
                       variant="success"
                       as={Button}
                       eventKey="0"
