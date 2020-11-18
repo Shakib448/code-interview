@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Actor&display=swap")
+
+.imageUpload
+    font-family: "Actor", sans-serif
+    font-size: 20px
+    padding: 5%
+    font-weight: bold
+
+.imageUpload__btn
+    padding : 2% 8%
+    background : #F1FBF9
+    border: none
+    color : #28A745
+    font-weight: bold
+    font-size: 20px
+
+    &:focus
+        outline: none
+        border: none
+        box-shadow: none
+
+.imageUpload__form
+    height: 50px
+    border: none
+    font-size: 15px
+    font-family: "Actor", sans-serif
+    font-weight: 600
+    background: #F1FBF9
+
+    &:focus
+        outline: none
+        border: none
+        box-shadow: none
+        background: #F1FBF9
+
+.inputFile
+    width: 0.1px
+    height: 0.1px
+    opacity: 0
+    overflow: hidden
+    position: absolute
+    z-index: -1
+
+.inputFile + label
+    font-size: 20px
+    font-weight: 700
+    color: #28A745
+    background-color: #F1FBF9
+    display: inline-block
+    cursor: pointer
+    border: 1px solid #F1FBF9
+    padding: 15px
+    border-radius: 10px
+    font-family: "Actor", sans-serif
+    letter-spacing: 2px
+
+.inputFile + label *
+    pointer-events: none
+
+.inputFile:focus + label
+    outline: none
