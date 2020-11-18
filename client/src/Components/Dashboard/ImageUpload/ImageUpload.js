@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import "./ImageUpload.sass";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
-import Sidebar from "../Sidebar/Sidebar";
+import DashboardNav from "../DashboardNav/DashboardNav";
 
 const ImageUpload = () => {
   const [service, setService] = useState({});
@@ -34,7 +34,7 @@ const ImageUpload = () => {
 
   return (
     <>
-      <Sidebar heading="Upload" />
+      <DashboardNav heading="Upload" />
       <>
         <Container className="imageUpload">
           <Form onSubmit={handleSubmit(onSubmit)}>
