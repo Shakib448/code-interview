@@ -10,6 +10,7 @@ firebase.initializeApp(firebaseConfig);
 
 const GoogleLogin = () => {
   const [userData, setUserData] = useContext(userInformationData);
+  console.log(userData);
   //Location
   let location = useLocation();
   let history = useHistory();
@@ -29,7 +30,7 @@ const GoogleLogin = () => {
         img: photoURL,
       };
       setUserData(singedInUser);
-      // history.replace(from);
+      history.replace(from);
     } catch (err) {
       console.warn(err);
     }

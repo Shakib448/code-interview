@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./HomeNav.sass";
 
 const HomeNav = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        className="homeNav__font"
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+      >
         <Container>
           <Navbar.Brand as={Link} to="/">
             Code Task
@@ -17,7 +24,7 @@ const HomeNav = () => {
                 Upload Task
               </Nav.Link>
               <Nav.Link as={Link} to="/upload-result">
-                Upload Result
+                Result
               </Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
