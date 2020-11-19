@@ -68,7 +68,6 @@ client.connect((err) => {
   });
   // addTask post
   app.post("/addTask", (req, res) => {
-    console.log(req.body);
     const file = req.files.file;
     const task = req.body.task;
     const description = req.body.description;
@@ -81,7 +80,10 @@ client.connect((err) => {
       img: Buffer.from(encImg, "base64"),
     };
 
+    console.log(image);
+
     givenTask.insertOne({ task, description, image }).then((result, err) => {
+      console.log(err);
       res.send(result.insertedCount > 0);
     });
   });

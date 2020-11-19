@@ -10,10 +10,18 @@ const ImageTask = () => {
 
   const [taskDetails, setTaskDetails] = useState([]);
 
+  const [selectTask, setSelectTask] = useState([]);
+
+  console.log(selectTask);
+  const handleTask = (taskSelected) => {
+    setSelectTask({ ...userData, ...taskSelected });
+  };
+
   useEffect(() => {
     const handleTask = async () => {
       const res = await AxiosConfig.get("/givenTask");
-      setTaskDetails(res.data);
+      const data = res.data;
+      setTaskDetails(data);
     };
     handleTask();
   }, []);
@@ -27,6 +35,7 @@ const ImageTask = () => {
               <Card className="imageTask__card">
                 <Card.Img
                   variant="top"
+                  height="300px"
                   src={`data:image/jpeg;base64,${task.image.img}`}
                 />
                 <Card.Body>
@@ -49,9 +58,7 @@ const ImageTask = () => {
                       <Accordion.Collapse eventKey="1">
                         <Card.Body className="text-center">
                           <Button
-                            // onClick={() =>
-                            //   triggerBase64Download(base64, "my_download_name")
-                            // }
+                            onClick={() => handleTask(task)}
                             className="imageTask__btn"
                             variant="success"
                           >

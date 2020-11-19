@@ -4,6 +4,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import ListIcon from "@material-ui/icons/List";
 import { Link } from "react-router-dom";
 import "./DashboardNav.sass";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 const Sidebar = ({ heading }) => {
   return (
@@ -28,6 +29,9 @@ const Sidebar = ({ heading }) => {
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/edited-image-list">
                   <ListIcon /> Edited List
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/add-admin">
+                  <PersonAddIcon /> Add Admin
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
