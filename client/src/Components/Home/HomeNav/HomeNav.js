@@ -26,7 +26,9 @@ const HomeNav = () => {
               <Nav.Link as={Link} to="/upload-result">
                 Result
               </Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link as={Link} to="/edited-image-list">
+                Admin
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

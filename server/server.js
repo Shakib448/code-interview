@@ -21,16 +21,16 @@ app.listen(PORT, () => {
   console.log(`Server is running ${"http://localhost:5000/"}`);
 });
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qebvf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.yimeo.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-console.log(process.env.DB_USER);
+console.log(uri);
 
 client.connect((err) => {
-  const courseCollection = client.db("codeInterview").collection("course");
+  const givenTask = client.db("codeInterview").collection("taskUpload");
   const serviceCollection = client.db("codeInterview").collection("service");
   const reviewCollection = client.db("codeInterview").collection("review");
   const adminCollection = client.db("codeInterview").collection("admin");
@@ -66,10 +66,11 @@ client.connect((err) => {
       res.send(doc);
     });
   });
-  // service post
-  app.post("/addService", (req, res) => {
+  // addTask post
+  app.post("/addTask", (req, res) => {
+    console.log(req.body);
     const file = req.files.file;
-    const service = req.body.service;
+    const task = req.body.task;
     const description = req.body.description;
     const newImg = file.data;
     const encImg = newImg.toString("base64");
@@ -80,16 +81,14 @@ client.connect((err) => {
       img: Buffer.from(encImg, "base64"),
     };
 
-    serviceCollection
-      .insertOne({ service, description, image })
-      .then((result) => {
-        res.send(result.insertedCount > 0);
-      });
+    givenTask.insertOne({ task, description, image }).then((result, err) => {
+      res.send(result.insertedCount > 0);
+    });
   });
 
   //service get
-  app.get("/service", (req, res) => {
-    serviceCollection.find({}).toArray((err, doc) => {
+  app.get("/givenTask", (req, res) => {
+    givenTask.find({}).toArray((err, doc) => {
       res.send(doc);
     });
   });

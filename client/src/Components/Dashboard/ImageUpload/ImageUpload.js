@@ -15,13 +15,16 @@ const ImageUpload = () => {
   const onSubmit = async (data, e) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("service", data.service);
+    formData.append("task", data.task);
     formData.append("description", data.description);
 
     e.target.reset();
-
     try {
-      await AxiosConfig.post("/addService", formData);
+      await AxiosConfig.post("/addTask", formData).then((res) => {
+        if (res) {
+          alert("Task added successfully");
+        }
+      });
     } catch (err) {
       console.log(err);
     }
