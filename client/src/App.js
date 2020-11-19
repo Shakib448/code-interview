@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import EditedImageList from "./Components/Dashboard/EditedImageList/EditedImageList";
 import ImageUpload from "./Components/Dashboard/ImageUpload/ImageUpload";
+import UploadResult from "./Components/Home/UploadResult/UploadResult";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import Home from "./Components/Home/Home/Home";
 import UploadTask from "./Components/Home/UploadTask/UploadTask";
@@ -23,6 +24,7 @@ function App() {
               component={EditedImageList}
             />
             <Route exact path="/upload-task" component={UploadTask} />
+            <Route exact path="/upload-result" component={UploadResult} />
             <Route exact path="/image-upload" component={ImageUpload} />
           </Switch>
         </Router>

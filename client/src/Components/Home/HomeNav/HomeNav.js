@@ -16,6 +16,9 @@ const HomeNav = () => {
               <Nav.Link as={Link} to="/upload-task">
                 Upload Task
               </Nav.Link>
+              <Nav.Link as={Link} to="/upload-result">
+                Upload Result
+              </Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
           </Navbar.Collapse>
