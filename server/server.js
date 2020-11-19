@@ -27,36 +27,35 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-console.log(uri);
-
 client.connect((err) => {
   const givenTask = client.db("codeInterview").collection("taskUpload");
-  const serviceCollection = client.db("codeInterview").collection("service");
+  const selectedTask = client.db("codeInterview").collection("selectedTask");
   const reviewCollection = client.db("codeInterview").collection("review");
   const adminCollection = client.db("codeInterview").collection("admin");
   const orderCollection = client.db("codeInterview").collection("order");
   console.log("Database is connected");
 
   // course post
-  app.post("/selectedCourse", (req, res) => {
-    const service = req.body.data.service;
-    const description = req.body.data.description;
-    const image = req.body.data.image;
-    const email = req.body.data.email;
-    const name = req.body.data.name;
-    const photo = req.body.data.img;
-    const isSignIn = req.body.data.isSignIn;
+  app.post("/selectedTask", (req, res) => {
+    const task = req.body.task;
+    const description = req.body.description;
+    const image = req.body.image;
+    const email = req.body.email;
+    const name = req.body.name;
+    const photo = req.body.img;
+    const isSignIn = req.body.isSignIn;
 
-    // courseCollection
-    //   .insertOne({ service, description, image, email, name, photo, isSignIn })
-    //   .then((result) => {
-    //     res.send(result.insertedCount > 0);
-    //   });
+    selectedTask
+      .insertOne({ task, description, image, email, name, photo, isSignIn })
+      .then((result) => {
+        res.send(result.insertedCount > 0);
+      });
   });
 
   // course get
-  app.get("/course", (req, res) => {
-    courseCollection.find({ email: req.query.email }).toArray((err, doc) => {
+  app.get("/studentTask", (req, res) => {
+    console.log(req.query.email);
+    selectedTask.find({ email: req.query.email }).toArray((err, doc) => {
       res.send(doc);
     });
   });
@@ -79,8 +78,6 @@ client.connect((err) => {
       size: req.files.file.size,
       img: Buffer.from(encImg, "base64"),
     };
-
-    console.log(image);
 
     givenTask.insertOne({ task, description, image }).then((result, err) => {
       console.log(err);

@@ -3,7 +3,6 @@ import { Accordion, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { userInformationData } from "../../../App";
 import "./ImageTask.sass";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
-import { triggerBase64Download } from "react-base64-downloader";
 
 const ImageTask = () => {
   const [userData, setUserData] = useContext(userInformationData);
@@ -12,16 +11,31 @@ const ImageTask = () => {
 
   const [selectTask, setSelectTask] = useState([]);
 
-  console.log(selectTask);
   const handleTask = (taskSelected) => {
     setSelectTask({ ...userData, ...taskSelected });
   };
+  // Post
+  useEffect(() => {
+    const handlePost = async () => {
+      try {
+        await AxiosConfig.post("/selectedTask", selectTask);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handlePost();
+  }, [selectTask]);
 
+  //Get
   useEffect(() => {
     const handleTask = async () => {
-      const res = await AxiosConfig.get("/givenTask");
-      const data = res.data;
-      setTaskDetails(data);
+      try {
+        const res = await AxiosConfig.get("/givenTask");
+        const data = res.data;
+        setTaskDetails(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     handleTask();
   }, []);
