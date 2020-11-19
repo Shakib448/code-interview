@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static("doctors"));
 app.use(fileupload());
 
 app.get("/", (req, res) => {
