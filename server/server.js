@@ -28,11 +28,11 @@ const client = new MongoClient(uri, {
 });
 
 client.connect((err) => {
-  const courseCollection = client.db("creativeAgency").collection("course");
-  const serviceCollection = client.db("creativeAgency").collection("service");
-  const reviewCollection = client.db("creativeAgency").collection("review");
-  const adminCollection = client.db("creativeAgency").collection("admin");
-  const orderCollection = client.db("creativeAgency").collection("order");
+  const courseCollection = client.db("codeInterview").collection("course");
+  const serviceCollection = client.db("codeInterview").collection("service");
+  const reviewCollection = client.db("codeInterview").collection("review");
+  const adminCollection = client.db("codeInterview").collection("admin");
+  const orderCollection = client.db("codeInterview").collection("order");
   console.log("Database is connected");
 
   // course post
@@ -115,6 +115,7 @@ client.connect((err) => {
       res.send(result.insertedCount > 0);
     });
   });
+
   // Is Admin post
   app.post("/isAdmin", (req, res) => {
     const email = req.body.data;
