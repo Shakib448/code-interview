@@ -1,13 +1,17 @@
 import React from "react";
 import Banner from "../Banner/Banner";
+import HomeNav from "../HomeNav/HomeNav";
 import ImageTask from "../ImageTask/ImageTask";
 
 const Home = () => {
   return (
-    <main style={{ backgroundColor: "#F1FBF9" }}>
-      <Banner />
-      <ImageTask />
-    </main>
+    <>
+      <HomeNav />
+      <main style={{ backgroundColor: "#F1FBF9" }}>
+        <Banner />
+        <ImageTask />
+      </main>
+    </>
   );
 };
 

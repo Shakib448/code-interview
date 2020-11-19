@@ -4,6 +4,7 @@ import EditedImageList from "./Components/Dashboard/EditedImageList/EditedImageL
 import ImageUpload from "./Components/Dashboard/ImageUpload/ImageUpload";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import Home from "./Components/Home/Home/Home";
+import UploadTask from "./Components/Home/UploadTask/UploadTask";
 
 export const userInformationData = createContext();
 
@@ -21,6 +22,7 @@ function App() {
               path="/edited-image-list"
               component={EditedImageList}
             />
+            <Route exact path="/upload-task" component={UploadTask} />
             <Route exact path="/image-upload" component={ImageUpload} />
           </Switch>
         </Router>
