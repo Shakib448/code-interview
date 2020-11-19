@@ -7,7 +7,7 @@ const EditedImageList = () => {
   return (
     <>
       <DashboardNav heading="Edited List" />
-      <Container className="mt-5 mb-5">
+      <Container className="mt-5 mb-5 table">
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
