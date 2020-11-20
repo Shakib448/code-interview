@@ -37,7 +37,7 @@ const UploadResult = () => {
                   src={`data:image/jpeg;base64,${stk.image.img}`}
                 />
                 <Card.Body>
-                  <Card.Title>{stk.title}</Card.Title>
+                  <Card.Title>{stk.task}</Card.Title>
                   <Accordion defaultActiveKey="0">
                     <Card className="uploadTaskCollapse__card">
                       <Card.Header className="text-center">
@@ -50,9 +50,9 @@ const UploadResult = () => {
                           Show Result
                         </Accordion.Toggle>
                       </Card.Header>
-                      {/* <Accordion.Collapse eventKey="1">
-                              <Card.Body>Hello! I'm the body</Card.Body>
-                            </Accordion.Collapse> */}
+                      <Accordion.Collapse eventKey="1">
+                        <Card.Body>{stk.description}</Card.Body>
+                      </Accordion.Collapse>
                       <Accordion.Collapse eventKey="1">
                         <Card.Body className="text-center">
                           <Button className="uploadTask__btn" variant="success">

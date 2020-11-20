@@ -6,6 +6,7 @@ import UploadResult from "./Components/Home/UploadResult/UploadResult";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import Home from "./Components/Home/Home/Home";
 import UploadTask from "./Components/Home/UploadTask/UploadTask";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 export const userInformationData = createContext();
 
@@ -23,9 +24,9 @@ function App() {
               path="/edited-image-list"
               component={EditedImageList}
             />
-            <Route exact path="/upload-task" component={UploadTask} />
+            <PrivateRoute exact path="/upload-task" component={UploadTask} />
             <Route exact path="/upload-result" component={UploadResult} />
-            <Route exact path="/image-upload" component={ImageUpload} />
+            <PrivateRoute exact path="/image-upload" component={ImageUpload} />
           </Switch>
         </Router>
       </userInformationData.Provider>

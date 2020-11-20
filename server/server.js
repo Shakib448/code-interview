@@ -54,7 +54,7 @@ client.connect((err) => {
     }
   });
 
-  // course get
+  // task get get
   app.get("/studentTask", (req, res) => {
     console.log(req.query.email);
     selectedTask.find({ email: req.query.email }).toArray((err, doc) => {
@@ -62,11 +62,12 @@ client.connect((err) => {
     });
   });
 
-  app.get("/allCourse", (req, res) => {
-    courseCollection.find({}).toArray((err, doc) => {
+  app.get("/allTask", (req, res) => {
+    selectedTask.find({}).toArray((err, doc) => {
       res.send(doc);
     });
   });
+
   // addTask post
   app.post("/addTask", (req, res) => {
     const file = req.files.file;
@@ -136,10 +137,8 @@ client.connect((err) => {
   //delete
 
   app.delete("/delete/:id", (req, res) => {
-    courseCollection
-      .deleteOne({ _id: ObjectId(req.params.id) })
-      .then((result) => {
-        res.send(result.insertedCount > 0);
-      });
+    selectedTask.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
+      res.send(result.insertedCount > 0);
+    });
   });
 });

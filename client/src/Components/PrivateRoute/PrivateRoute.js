@@ -10,12 +10,12 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        userData.email ? (
+        userData.email || userData.name ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: "/google-sign-in",
+              pathname: "/google-login",
               state: { from: location },
             }}
           />
