@@ -65,7 +65,6 @@ client.connect((err) => {
 
   // task get get
   app.get("/studentTask", (req, res) => {
-    console.log(req.query.email);
     selectedTask.find({ email: req.query.email }).toArray((err, doc) => {
       res.send(doc);
     });
@@ -116,7 +115,6 @@ client.connect((err) => {
   // Is Admin post
   app.post("/isAdmin", (req, res) => {
     const email = req.body.data;
-    console.log(email);
     adminCollection.find({ email: email }).toArray((err, admin) => {
       res.send(admin.length > 0);
     });
@@ -124,7 +122,6 @@ client.connect((err) => {
 
   // admin get
   app.get("/Admin", (req, res) => {
-    console.log(req.body.email);
     adminCollection.find({}).toArray((err, doc) => {
       res.send(doc);
     });
@@ -134,7 +131,6 @@ client.connect((err) => {
   //Update operation
 
   app.patch("/update/:id", (req, res) => {
-    console.log(req.params.id, req.body.marks);
     selectedTask
       .updateOne(
         {

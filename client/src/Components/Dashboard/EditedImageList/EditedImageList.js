@@ -41,8 +41,6 @@ const EditedImageList = () => {
     } catch (error) {
       console.log(error);
     }
-
-    console.log(id);
   };
 
   const handelChange = async (id, index) => {
