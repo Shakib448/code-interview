@@ -1,51 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { Card, Container, Dropdown, Table } from "react-bootstrap";
 import DashboardNav from "../DashboardNav/DashboardNav";
-import "./EditedImageList.sass";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 
-const EditedImageList = () => {
-  const [allTask, setAllTask] = useState([]);
+const ImageUploadList = () => {
+  const [uploadTask, setUploadTask] = useState([]);
 
-  const handleAllTask = async () => {
+  const handleUploadTask = async () => {
     try {
-      const res = await AxiosConfig.get("/allTask");
-      setAllTask(res.data);
+      const res = await AxiosConfig.get("/givenTask");
+      setUploadTask(res.data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    handleAllTask();
-  }, [allTask]);
+    handleUploadTask();
+  }, [uploadTask]);
 
   const handleTaskDelete = async (id) => {
     try {
-      await AxiosConfig.delete(`/delete/${id}`);
+      await AxiosConfig.delete(`/taskDelete/${id}`);
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <>
-      <DashboardNav heading="Edited List" />
+      <DashboardNav heading="Upload List" />
       <Container className="mt-5 mb-5 table">
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               <th>Name</th>
-              <th>Email</th>
               <th>Details</th>
               <th>Image</th>
-              <th>Marks</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {allTask.map((task) => (
+            {uploadTask.map((task) => (
               <tr key={task._id}>
                 <td>{task.task}</td>
-                <td>{task.email}</td>
                 <td className="text-wrap">{task.description}</td>
                 <td>
                   {" "}
@@ -60,13 +57,7 @@ const EditedImageList = () => {
                       variant="success"
                       id="dropdown-basic"
                     ></Dropdown.Toggle>
-
                     <Dropdown.Menu>
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
-                        (number, numberId) => (
-                          <Dropdown.Item key={numberId}>{number}</Dropdown.Item>
-                        )
-                      )}
                       <Dropdown.Item
                         onClick={() => handleTaskDelete(task._id)}
                         className="text-danger"
@@ -85,4 +76,4 @@ const EditedImageList = () => {
   );
 };
 
-export default EditedImageList;
+export default ImageUploadList;

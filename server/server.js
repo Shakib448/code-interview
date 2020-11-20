@@ -134,10 +134,16 @@ client.connect((err) => {
     });
   });
 
-  //delete
+  //Selected Task delete delete
 
   app.delete("/delete/:id", (req, res) => {
     selectedTask.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
+      res.send(result.insertedCount > 0);
+    });
+  });
+  // Give task delete
+  app.delete("/taskDelete/:id", (req, res) => {
+    givenTask.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
       res.send(result.insertedCount > 0);
     });
   });
