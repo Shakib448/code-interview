@@ -7,8 +7,6 @@ import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 const EditedImageList = () => {
   const [allTask, setAllTask] = useState([]);
 
-  const [mark, setMark] = useState();
-
   useEffect(() => {
     const handleAllTask = async () => {
       try {
@@ -46,6 +44,25 @@ const EditedImageList = () => {
 
     console.log(id);
   };
+
+  const handelChange = async (id, index) => {
+    const marks = document.getElementById(`inputGroupSelect${index}`).value;
+    const number = { id, marks };
+    // try {
+    //   await AxiosConfig.patch(`/update/${id}`, { marks: number });
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    fetch(`http://localhost:5000/update/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(number),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <>
       <DashboardNav heading="Edited List" />
@@ -61,7 +78,7 @@ const EditedImageList = () => {
             </tr>
           </thead>
           <tbody>
-            {allTask.map((task) => (
+            {allTask.map((task, index) => (
               <tr key={task._id}>
                 <td>{task.email}</td>
                 <td>{task.task}</td>
@@ -74,18 +91,55 @@ const EditedImageList = () => {
                   />
                 </td>
                 <td>
-                  <Dropdown>
+                  <select
+                    // style={item.status === "Done" ? styleDone : stylePending}
+                    className="custom-select"
+                    onChange={() => handelChange(task._id, index)}
+                    id={"inputGroupSelect" + index}
+                  >
+                    {/* <option selected>{item.status}</option> */}
+                    <option name="marks" value="1">
+                      1
+                    </option>
+                    <option name="marks" value="2">
+                      2
+                    </option>
+                    <option name="marks" value="3">
+                      3
+                    </option>
+                    <option name="marks" value="4">
+                      4
+                    </option>
+                    <option name="marks" value="5">
+                      5
+                    </option>
+                    <option name="marks" value="6">
+                      6
+                    </option>
+                    <option name="marks" value="7">
+                      7
+                    </option>
+                    <option name="marks" value="8">
+                      8
+                    </option>
+                    <option name="marks" value="9">
+                      9
+                    </option>
+                    <option name="marks" value="10">
+                      10
+                    </option>
+                  </select>
+
+                  {/* <Dropdown>
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
                     ></Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
-                        (number, numberId) => (
-                          <Dropdown.Item key={numberId}>{number}</Dropdown.Item>
-                        )
-                      )}
+
+                      <Dropdown.Item key={numberId}>{number}</Dropdown.Item>
+
                       <Dropdown.Item
                         onClick={() => handleTaskDelete(task._id)}
                         className="text-danger"
@@ -93,7 +147,7 @@ const EditedImageList = () => {
                         Delete
                       </Dropdown.Item>
                     </Dropdown.Menu>
-                  </Dropdown>
+                  </Dropdown> */}
                 </td>
               </tr>
             ))}
