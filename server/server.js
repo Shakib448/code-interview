@@ -37,6 +37,7 @@ client.connect((err) => {
 
   // course post
   app.post("/selectedTask", (req, res) => {
+    console.log(req.body);
     const task = req.body.task;
     const description = req.body.description;
     const image = req.body.image;
@@ -133,8 +134,28 @@ client.connect((err) => {
     });
   });
 
-  //Selected Task delete delete
+  // Update
+  //Update operation
 
+  app.patch("/update/:id", (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body.mark);
+    // selectedTask.updateOne(
+    //   {
+    //     _id: ObjectId(req.params.id),
+    //   },
+    //   {
+    //     $set: {
+    //       mark: req.body.marks,
+    //     },
+    //   }
+    // );
+    // .then((result) => {
+    //   res.send(result.modifiedCount > 0);
+    // });
+  });
+
+  //Selected Task delete delete
   app.delete("/delete/:id", (req, res) => {
     selectedTask.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
       res.send(result.insertedCount > 0);

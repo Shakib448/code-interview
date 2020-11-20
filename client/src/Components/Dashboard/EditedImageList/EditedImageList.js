@@ -7,7 +7,34 @@ import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 const EditedImageList = () => {
   const [allTask, setAllTask] = useState([]);
 
-  const handleAllTask = async () => {
+  const [mark, setMark] = useState("No Mark Given");
+
+  console.log(allTask);
+
+  useEffect(() => {
+    const handlePatch = async (id) => {
+      try {
+        await AxiosConfig.patch(`/update/${id}`);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handlePatch();
+  }, []);
+
+  useEffect(() => {
+    const handleAllTask = async () => {
+      try {
+        const res = await AxiosConfig.get("/allTask");
+        setAllTask(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleAllTask();
+  }, []);
+
+  const handleDeleteTask = async () => {
     try {
       const res = await AxiosConfig.get("/allTask");
       setAllTask(res.data);
@@ -17,12 +44,14 @@ const EditedImageList = () => {
   };
 
   useEffect(() => {
-    handleAllTask();
-  }, [allTask]);
+    handleDeleteTask();
+  }, []);
 
   const handleTaskDelete = async (id) => {
     try {
-      await AxiosConfig.delete(`/delete/${id}`);
+      await AxiosConfig.delete(`/delete/${id}`).then((res) => {
+        if (res) handleDeleteTask();
+      });
     } catch (error) {
       console.log(error);
     }
