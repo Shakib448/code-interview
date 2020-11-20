@@ -83,7 +83,7 @@ const EditedImageList = () => {
                 </td>
                 <td>
                   <select
-                    className="custom-select"
+                    className="selectpicker show-tick"
                     onChange={() => handelChange(task._id, index)}
                     id={"inputGroupSelect" + index}
                   >
