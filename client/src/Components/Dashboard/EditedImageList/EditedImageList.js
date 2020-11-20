@@ -31,11 +31,11 @@ const EditedImageList = () => {
     <>
       <DashboardNav heading="Edited List" />
       <Container className="mt-5 mb-5 table">
-        <Table striped bordered hover variant="dark">
+        <Table responsive="sm" striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>Name</th>
               <th>Email</th>
+              <th>Task</th>
               <th>Details</th>
               <th>Image</th>
               <th>Marks</th>
@@ -44,8 +44,8 @@ const EditedImageList = () => {
           <tbody>
             {allTask.map((task) => (
               <tr key={task._id}>
-                <td>{task.task}</td>
                 <td>{task.email}</td>
+                <td>{task.task}</td>
                 <td className="text-wrap">{task.description}</td>
                 <td>
                   {" "}

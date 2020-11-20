@@ -30,10 +30,10 @@ const ImageUploadList = () => {
     <>
       <DashboardNav heading="Upload List" />
       <Container className="mt-5 mb-5 table">
-        <Table striped bordered hover variant="dark">
+        <Table responsive="sm" striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Task </th>
               <th>Details</th>
               <th>Image</th>
               <th>Delete</th>

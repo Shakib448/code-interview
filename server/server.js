@@ -37,7 +37,6 @@ client.connect((err) => {
 
   // course post
   app.post("/selectedTask", (req, res) => {
-    console.log(req.body);
     const task = req.body.task;
     const description = req.body.description;
     const image = req.body.image;
