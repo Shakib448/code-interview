@@ -6,12 +6,11 @@ import DashboardNav from "../DashboardNav/DashboardNav";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 
 const AddAdmin = () => {
-  const { register, handleSubmit, errors } = useForm({});
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data, e) => {
-    e.target.reset();
-
     try {
-      await AxiosConfig.post("/isAdmin", { data: data.email });
+      await AxiosConfig.post("/addAdmin", { data: data.email });
+      e.target.reset();
     } catch (error) {
       console.log(error);
     }

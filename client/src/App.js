@@ -13,9 +13,12 @@ export const userInformationData = createContext();
 
 function App() {
   const [userData, setUserData] = useState({});
+  const [isAdmin, setAdmin] = useState(false);
   return (
     <>
-      <userInformationData.Provider value={[userData, setUserData]}>
+      <userInformationData.Provider
+        value={[userData, setUserData, isAdmin, setAdmin]}
+      >
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />

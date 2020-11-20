@@ -112,22 +112,22 @@ client.connect((err) => {
       res.send(result.insertedCount > 0);
     });
   });
+
   // Is Admin post
   app.post("/isAdmin", (req, res) => {
     const email = req.body.data;
-
     console.log(email);
-    // adminCollection.find({ email: email }).toArray((err, admin) => {
-    //   res.send(admin.length > 0);
-    // });
+    adminCollection.find({ email: email }).toArray((err, admin) => {
+      res.send(admin.length > 0);
+    });
   });
 
   // admin get
   app.get("/Admin", (req, res) => {
     console.log(req.body.email);
-    // adminCollection.find({}).toArray((err, doc) => {
-    //   res.send(doc);
-    // });
+    adminCollection.find({}).toArray((err, doc) => {
+      res.send(doc);
+    });
   });
 
   // Update
