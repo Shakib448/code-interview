@@ -23,19 +23,21 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/google-login" component={GoogleLogin} />
-            <Route
-              exact
-              path="/edited-image-list"
-              component={EditedImageList}
-            />
-            <Route
-              exact
-              path="/admin-upload-task"
-              component={ImageUploadList}
-            />
-            <Route exact path="/upload-result" component={UploadResult} />
-            <Route exact path="/image-upload" component={ImageUpload} />
-            <Route exact path="/add-admin" component={AddAdmin} />
+            <PrivateRoute exact path="/edited-image-list">
+              <EditedImageList />
+            </PrivateRoute>
+            <PrivateRoute exact path="/admin-upload-task">
+              <ImageUploadList />
+            </PrivateRoute>
+            <PrivateRoute exact path="/upload-result">
+              <UploadResult />
+            </PrivateRoute>
+            <PrivateRoute exact path="/image-upload">
+              <ImageUpload />
+            </PrivateRoute>
+            <PrivateRoute exact path="/add-admin">
+              <AddAdmin />
+            </PrivateRoute>
           </Switch>
         </Router>
       </userInformationData.Provider>
