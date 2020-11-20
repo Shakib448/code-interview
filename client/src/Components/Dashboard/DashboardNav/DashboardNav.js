@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import ListIcon from "@material-ui/icons/List";
@@ -6,8 +6,12 @@ import { Link } from "react-router-dom";
 import "./DashboardNav.sass";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { userInformationData } from "../../../App";
 
 const Sidebar = ({ heading }) => {
+  const [userData, setUserData] = useContext(userInformationData);
+
   return (
     <>
       <Navbar
@@ -36,6 +40,9 @@ const Sidebar = ({ heading }) => {
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/admin-upload-task">
                   <FilterListIcon /> Upload list
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setUserData({})}>
+                  <ExitToAppIcon /> Log out
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

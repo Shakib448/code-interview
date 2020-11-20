@@ -45,9 +45,12 @@ const HomeNav = () => {
                   Admin
                 </Nav.Link>
               ) : (
-                <Nav.Link as={Link} to="/upload-result">
-                  Result
-                </Nav.Link>
+                <>
+                  <Nav.Link as={Link} to="/upload-result">
+                    Result
+                  </Nav.Link>
+                  <Nav.Link onClick={() => setUserData({})}>Log Out</Nav.Link>
+                </>
               )}
             </Nav>
           </Navbar.Collapse>
