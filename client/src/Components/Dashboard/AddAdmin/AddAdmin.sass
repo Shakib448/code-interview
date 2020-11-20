@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Actor&display=swap")
+$font : "Actor", sans-serif
+$bgColor : #F1FBF9
+
+=button($bg)
+    outline: none
+    border: none
+    box-shadow: none
+    background: $bg
+
+.addAdmin
+    font-family: $font
+    font-size: 20px
+    padding: 5%
+    font-weight: bold
+
+.addAdmin__btn
+    padding : 2% 8%
+    background : $bgColor
+    border: none
+    color : #28A745
+    font-weight: bold
+    font-size: 20px
+
+    &:focus
+        +button(#28A745)
+.addAdmin__form
+    height: 50px
+    border: none
+    font-size: 15px
+    font-family: $font
+    font-weight: 600
+    background: $bgColor
+
+    &:focus
+        +button($bgColor)

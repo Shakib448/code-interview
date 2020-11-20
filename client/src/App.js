@@ -8,6 +8,7 @@ import Home from "./Components/Home/Home/Home";
 import UploadTask from "./Components/Home/UploadTask/UploadTask";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import ImageUploadList from "./Components/Dashboard/ImageUploadList/ImageUploadList";
+import AddAdmin from "./Components/Dashboard/AddAdmin/AddAdmin";
 
 export const userInformationData = createContext();
 
@@ -33,6 +34,7 @@ function App() {
             />
             <Route exact path="/upload-result" component={UploadResult} />
             <Route exact path="/image-upload" component={ImageUpload} />
+            <Route exact path="/add-admin" component={AddAdmin} />
           </Switch>
         </Router>
       </userInformationData.Provider>

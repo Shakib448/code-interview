@@ -7,20 +7,7 @@ import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 const EditedImageList = () => {
   const [allTask, setAllTask] = useState([]);
 
-  const [mark, setMark] = useState("No Mark Given");
-
-  console.log(allTask);
-
-  useEffect(() => {
-    const handlePatch = async (id) => {
-      try {
-        await AxiosConfig.patch(`/update/${id}`);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handlePatch();
-  }, []);
+  const [mark, setMark] = useState();
 
   useEffect(() => {
     const handleAllTask = async () => {
@@ -34,6 +21,7 @@ const EditedImageList = () => {
     handleAllTask();
   }, []);
 
+  // Delete
   const handleDeleteTask = async () => {
     try {
       const res = await AxiosConfig.get("/allTask");
@@ -55,6 +43,8 @@ const EditedImageList = () => {
     } catch (error) {
       console.log(error);
     }
+
+    console.log(id);
   };
   return (
     <>

@@ -9,10 +9,14 @@ const ImageTask = () => {
 
   const [taskDetails, setTaskDetails] = useState([]);
 
+  const [number, setNumber] = useState({
+    mark: "No Marks Given",
+  });
+
   const [selectTask, setSelectTask] = useState({});
 
   const handleTask = (taskSelected) => {
-    setSelectTask({ ...userData, ...taskSelected });
+    setSelectTask({ ...userData, ...taskSelected, ...number });
   };
   // Post
   useEffect(() => {

@@ -51,12 +51,9 @@ const UploadResult = () => {
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey="1">
-                        <Card.Body>{stk.description}</Card.Body>
-                      </Accordion.Collapse>
-                      <Accordion.Collapse eventKey="1">
                         <Card.Body className="text-center">
                           <Button className="uploadTask__btn" variant="success">
-                            Download
+                            {stk.marks}
                           </Button>
                         </Card.Body>
                       </Accordion.Collapse>
