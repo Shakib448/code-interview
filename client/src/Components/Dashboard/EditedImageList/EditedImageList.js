@@ -48,20 +48,11 @@ const EditedImageList = () => {
   const handelChange = async (id, index) => {
     const marks = document.getElementById(`inputGroupSelect${index}`).value;
     const number = { id, marks };
-    // try {
-    //   await AxiosConfig.patch(`/update/${id}`, { marks: number });
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    fetch(`http://localhost:5000/update/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(number),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    try {
+      await AxiosConfig.patch(`/update/${id}`, number);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -92,12 +83,10 @@ const EditedImageList = () => {
                 </td>
                 <td>
                   <select
-                    // style={item.status === "Done" ? styleDone : stylePending}
                     className="custom-select"
                     onChange={() => handelChange(task._id, index)}
                     id={"inputGroupSelect" + index}
                   >
-                    {/* <option selected>{item.status}</option> */}
                     <option name="marks" value="1">
                       1
                     </option>
