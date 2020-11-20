@@ -37,6 +37,7 @@ client.connect((err) => {
 
   // course post
   app.post("/selectedTask", (req, res) => {
+    console.log(req.body);
     const task = req.body.task;
     const description = req.body.description;
     const image = req.body.image;
@@ -44,12 +45,13 @@ client.connect((err) => {
     const name = req.body.name;
     const photo = req.body.img;
     const isSignIn = req.body.isSignIn;
-
-    selectedTask
-      .insertOne({ task, description, image, email, name, photo, isSignIn })
-      .then((result) => {
-        res.send(result.insertedCount > 0);
-      });
+    if (req.body.isSignIn) {
+      selectedTask
+        .insertOne({ task, description, image, email, name, photo, isSignIn })
+        .then((result) => {
+          res.send(result.insertedCount > 0);
+        });
+    }
   });
 
   // course get

@@ -7,7 +7,6 @@ import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 
 const UploadResult = () => {
   const [studentTask, setStudentTask] = useState([]);
-  console.log(studentTask);
   const [userData, setUserData] = useContext(userInformationData);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const UploadResult = () => {
       }
     };
     filterData();
-  }, []);
+  }, [userData.email]);
 
   return (
     <>

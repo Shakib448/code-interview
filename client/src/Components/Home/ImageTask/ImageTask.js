@@ -9,7 +9,7 @@ const ImageTask = () => {
 
   const [taskDetails, setTaskDetails] = useState([]);
 
-  const [selectTask, setSelectTask] = useState([]);
+  const [selectTask, setSelectTask] = useState({});
 
   const handleTask = (taskSelected) => {
     setSelectTask({ ...userData, ...taskSelected });
@@ -76,7 +76,7 @@ const ImageTask = () => {
                             className="imageTask__btn"
                             variant="success"
                           >
-                            Download
+                            Select
                           </Button>
                         </Card.Body>
                       </Accordion.Collapse>
