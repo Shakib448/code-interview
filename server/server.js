@@ -134,22 +134,21 @@ client.connect((err) => {
   //Update operation
 
   app.patch("/update/:id", (req, res) => {
-    console.log(req.params.id);
-    console.log(req.body);
-    // selectedTask
-    //   .updateOne(
-    //     {
-    //       _id: ObjectId(req.params.id),
-    //     },
-    //     {
-    //       $set: {
-    //         mark: req.body,
-    //       },
-    //     }
-    //   )
-    //   .then((result) => {
-    //     res.send(result.modifiedCount > 0);
-    //   });
+    console.log(req.params.id, req.body.marks);
+    selectedTask
+      .updateOne(
+        {
+          _id: ObjectId(req.params.id),
+        },
+        {
+          $set: {
+            marks: req.body.marks,
+          },
+        }
+      )
+      .then((result) => {
+        res.send(result.modifiedCount > 0);
+      });
   });
 
   //Selected Task delete delete
