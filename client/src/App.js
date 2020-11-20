@@ -5,7 +5,6 @@ import ImageUpload from "./Components/Dashboard/ImageUpload/ImageUpload";
 import UploadResult from "./Components/Home/UploadResult/UploadResult";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import Home from "./Components/Home/Home/Home";
-import UploadTask from "./Components/Home/UploadTask/UploadTask";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import ImageUploadList from "./Components/Dashboard/ImageUploadList/ImageUploadList";
 import AddAdmin from "./Components/Dashboard/AddAdmin/AddAdmin";
@@ -26,7 +25,6 @@ function App() {
               path="/edited-image-list"
               component={EditedImageList}
             />
-            <Route exact path="/upload-task" component={UploadTask} />
             <Route
               exact
               path="/admin-upload-task"

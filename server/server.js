@@ -97,24 +97,9 @@ client.connect((err) => {
     });
   });
 
-  //service get
+  //Given Task get
   app.get("/givenTask", (req, res) => {
     givenTask.find({}).toArray((err, doc) => {
-      res.send(doc);
-    });
-  });
-
-  // review post
-  app.post("/review", (req, res) => {
-    const review = req.body.review;
-
-    reviewCollection.insertOne(review).then((result) => {
-      res.send(result.insertedCount > 0);
-    });
-  });
-  // review get
-  app.get("/allReview", (req, res) => {
-    reviewCollection.find({}).toArray((err, doc) => {
       res.send(doc);
     });
   });
@@ -130,17 +115,19 @@ client.connect((err) => {
   // Is Admin post
   app.post("/isAdmin", (req, res) => {
     const email = req.body.data;
-    adminCollection.find({ email: email }).toArray((err, admin) => {
-      res.send(admin.length > 0);
-    });
+
+    console.log(email);
+    // adminCollection.find({ email: email }).toArray((err, admin) => {
+    //   res.send(admin.length > 0);
+    // });
   });
 
   // admin get
   app.get("/Admin", (req, res) => {
     console.log(req.body.email);
-    adminCollection.find({}).toArray((err, doc) => {
-      res.send(doc);
-    });
+    // adminCollection.find({}).toArray((err, doc) => {
+    //   res.send(doc);
+    // });
   });
 
   // Update

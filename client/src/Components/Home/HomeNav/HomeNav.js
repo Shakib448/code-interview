@@ -20,9 +20,6 @@ const HomeNav = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/upload-task">
-                Upload Task
-              </Nav.Link>
               <Nav.Link as={Link} to="/upload-result">
                 Result
               </Nav.Link>

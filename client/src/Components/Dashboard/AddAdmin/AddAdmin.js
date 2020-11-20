@@ -3,22 +3,29 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./AddAdmin.sass";
 import DashboardNav from "../DashboardNav/DashboardNav";
+import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 
 const AddAdmin = () => {
   const { register, handleSubmit, errors } = useForm({});
   const onSubmit = async (data, e) => {
     e.target.reset();
+
+    try {
+      await AxiosConfig.post("/isAdmin", { data: data.email });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
-      <DashboardNav />
+      <DashboardNav heading="Add Admin" />
       <>
         <Container className="addAdmin">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Row className="justify-content-center">
               <Col md={8}>
-                <Form.Label> Email</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Group>
                   <Form.Control
                     name="email"
