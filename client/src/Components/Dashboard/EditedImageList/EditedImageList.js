@@ -5,7 +5,7 @@ import "./EditedImageList.sass";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const EditedImageList = () => {
+const EditedImageList = (props) => {
   const [allTask, setAllTask] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -49,6 +49,7 @@ const EditedImageList = () => {
   const handelChange = async (id, index) => {
     const marks = document.getElementById(`inputGroupSelect${index}`).value;
     const number = { id, marks };
+    console.log();
     try {
       await AxiosConfig.patch(`/update/${id}`, number);
     } catch (error) {
