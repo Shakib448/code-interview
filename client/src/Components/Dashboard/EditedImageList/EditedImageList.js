@@ -81,7 +81,7 @@ const EditedImageList = (props) => {
                   <td>
                     {" "}
                     <Card.Img
-                      style={{ width: "100px" }}
+                      className="table__image"
                       variant="top"
                       src={`data:image/jpeg;base64,${task.image.img}`}
                     />

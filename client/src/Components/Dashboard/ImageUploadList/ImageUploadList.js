@@ -3,6 +3,7 @@ import { Card, Container, Dropdown, Table, Row } from "react-bootstrap";
 import DashboardNav from "../DashboardNav/DashboardNav";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import "./ImageUploadList.sass";
 
 const ImageUploadList = () => {
   const [uploadTask, setUploadTask] = useState([]);
@@ -51,7 +52,7 @@ const ImageUploadList = () => {
                   <td>
                     {" "}
                     <Card.Img
-                      style={{ width: "100px" }}
+                      className="upload__img"
                       variant="top"
                       src={`data:image/jpeg;base64,${task.image.img}`}
                     />
