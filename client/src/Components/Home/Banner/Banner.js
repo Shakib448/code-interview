@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [userData, setUserData] = useContext(userInformationData);
+
   return (
     <section className="banner">
       {userData.isSignIn ? (
