@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, Row, Table } from "react-bootstrap";
+import { Card, Container, Row, Table, Dropdown } from "react-bootstrap";
 import DashboardNav from "../DashboardNav/DashboardNav";
 import "./EditedImageList.sass";
 import AxiosConfig from "../../AxiosConfig/AxiosConfig";
@@ -68,6 +68,7 @@ const EditedImageList = () => {
                 <th>Details</th>
                 <th>Image</th>
                 <th>Marks</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -120,6 +121,23 @@ const EditedImageList = () => {
                         10
                       </option>
                     </select>
+                    {task.marks}
+                  </td>
+                  <td>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        variant="success"
+                        id="dropdown-basic"
+                      ></Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item
+                          onClick={() => handleTaskDelete(task._id)}
+                          className="text-danger"
+                        >
+                          Delete
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </td>
                 </tr>
               ))}
